@@ -1,7 +1,7 @@
 <template>
   <NConfigProvider>
-    <div>HelloWorld</div>
     <NGlobalStyle />
+    <RouterView />
   </NConfigProvider>
 </template>
 <script setup lang="ts">

@@ -1,5 +1,6 @@
 import { rmSync } from "node:fs";
 import { defineConfig } from "vite";
+import { resolve } from "node:path";
 import vue from "@vitejs/plugin-vue";
 import electron from "vite-plugin-electron";
 import renderer from "vite-plugin-electron-renderer";
@@ -19,6 +20,21 @@ export default defineConfig(({ command }) => {
   const sourcemap = isServe || !!process.env.VSCODE_DEBUG;
 
   return {
+    resolve: {
+      alias: {
+        "@": resolve(__dirname, "./src"),
+      },
+      extensions: [
+        ".mjs",
+        ".js",
+        ".ts",
+        ".jsx",
+        ".tsx",
+        ".json",
+        ".vue",
+        ".mts",
+      ],
+    },
     plugins: [
       vue(),
       UnoCss(),
@@ -43,6 +59,9 @@ export default defineConfig(({ command }) => {
               "useNotification",
               "useLoadingBar",
             ],
+          },
+          {
+            "vue-router": ["createRouter", "createWebHistory"],
           },
         ],
       }),
