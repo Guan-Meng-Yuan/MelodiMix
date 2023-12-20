@@ -7,7 +7,6 @@
             </NLayoutHeader>
             <NLayoutContent :native-scrollbar="false" position="absolute" style="top: 90px;" h-90vh>
                 <div flex="~ col items-center justify-center">
-
                     <div v-for="index of 100">{{ `侧边菜单${index}` }}</div>
                 </div>
             </NLayoutContent>
