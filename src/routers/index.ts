@@ -1,11 +1,19 @@
+import Layout from "@/layouts/index.vue";
+
+const routers: any[] = [
+  {
+    path: "",
+    component: Layout,
+    redirect: "/index",
+    hidden: true,
+    children: [
+      { path: "/index", component: () => import("@/pages/index.vue") },
+    ],
+  },
+];
 const router = createRouter({
   history: createWebHistory(),
-  routes: [
-    {
-      path: "/",
-      component: () => import("@/pages/index.vue"),
-    },
-  ],
+  routes: routers,
 });
 
 export default router;

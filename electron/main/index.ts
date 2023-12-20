@@ -43,6 +43,7 @@ const indexHtml = join(process.env.DIST, "index.html");
 async function createWindow() {
   win = new BrowserWindow({
     icon: join(process.env.VITE_PUBLIC, "favicon.ico"),
+    titleBarStyle: "hiddenInset",
     webPreferences: {
       preload,
       // Warning: Enable nodeIntegration and disable contextIsolation is not secure in production
