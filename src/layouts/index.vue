@@ -1,21 +1,41 @@
 <template>
     <div class="drag"></div>
     <NLayout position="absolute" h-100vh has-sider>
-        <n-layout-sider :native-scrollbar="false" bordered width="200">
-            <div v-for="index of 100">这是左侧菜单{{ index }}</div>
-        </n-layout-sider>
-        <n-layout>
-            <n-layout-header style="z-index: 99999;" h-64px bordered position="absolute">
-                <div>这是头部</div>
-            </n-layout-header>
-            <n-layout-content :native-scrollbar="false" bordered position="absolute" style="top:64px;bottom: 64px;">
+        <NLayoutSider :native-scrollbar="false" bordered width="180">
+            <NLayoutHeader style="z-index: 99999;" h-10vh position="absolute">
+                <Logo w-full mt-2 />
+            </NLayoutHeader>
+            <NLayoutContent :native-scrollbar="false" position="absolute" style="top: 90px;" h-90vh>
+                <div flex="~ col items-center justify-center">
+
+                    <div v-for="index of 100">{{ `侧边菜单${index}` }}</div>
+                </div>
+            </NLayoutContent>
+
+        </NLayoutSider>
+        <NLayout>
+            <NLayoutHeader flex="~ items-center" style="z-index: 99999;" h-10vh bordered position="absolute">
+                <NButtonGroup>
+                    <NButton size="large" text>
+                        <template #icon>
+                            <div i-iconamoon:arrow-left-2></div>
+                        </template>
+                    </NButton>
+                    <NButton size="large" text>
+                        <template #icon>
+                            <div i-iconamoon:arrow-right-2></div>
+                        </template>
+                    </NButton>
+                </NButtonGroup>
+            </NLayoutHeader>
+            <NLayoutContent :native-scrollbar="false" bordered position="absolute" style="top:64px;bottom: 64px;">
                 <RouterView />
                 <div v-for="index of 100">{{ index }}</div>
-            </n-layout-content>
-            <n-layout-footer h-64px bordered position="absolute">
+            </NLayoutContent>
+            <NLayoutFooter h-10vh bordered position="absolute">
                 这是底部
-            </n-layout-footer>
-        </n-layout>
+            </NLayoutFooter>
+        </NLayout>
     </NLayout>
 </template>
 <script lang="ts" setup>
