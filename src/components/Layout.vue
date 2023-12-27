@@ -20,13 +20,12 @@
                     </NButton>
                 </NButtonGroup>
             </NLayoutHeader>
-            <NLayoutContent p4 :native-scrollbar="false" position="absolute" pr10 style="top:50px;bottom: 100px;">
+            <NLayoutContent p4 :native-scrollbar="false" position="absolute" pr10 style="top:50px;bottom: 80px;">
                 <slot />
             </NLayoutContent>
-            <NLayoutFooter pl4 pr4 pb5 h-100px position="absolute">
-                <div>
-
-                </div>
+            <NLayoutFooter pb5 h-80px position="absolute">
+                <NProgress processing :height="2" :percentage="20" status="success" :border-radius="0" type="line"
+                    :show-indicator="false" />
             </NLayoutFooter>
         </NLayout>
 
