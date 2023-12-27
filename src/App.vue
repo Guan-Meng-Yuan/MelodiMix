@@ -1,5 +1,5 @@
 <template>
-  <NConfigProvider :theme="themeValue" :theme-overrides="themeOverrides">
+  <NConfigProvider :theme="themeValue" :theme-overrides="isDark ? darkThemeOverride : lightThemeOverride">
     <NGlobalStyle />
     <Layout>
       <RouterView />
@@ -11,10 +11,9 @@ import { darkTheme, GlobalThemeOverrides } from 'naive-ui';
 const isDark = useDark();
 const themeValue = ref()
 watchEffect(() => {
-  console.log(isDark.value);
   themeValue.value = isDark.value ? darkTheme : null
 })
-const themeOverrides: GlobalThemeOverrides = {
+const darkThemeOverride: GlobalThemeOverrides = {
   DataTable: {
     thColor: null,
     thColorHover: null,
@@ -22,6 +21,24 @@ const themeOverrides: GlobalThemeOverrides = {
     thColorHoverPopover: null,
     borderColor: null,
     thButtonColorHover: null,
+  },
+  Layout: {
+    footerColor: 'rgb(24, 24, 28)',
+
+  }
+}
+const lightThemeOverride: GlobalThemeOverrides = {
+  DataTable: {
+    thColor: null,
+    thColorHover: null,
+    thColorHoverModal: null,
+    thColorHoverPopover: null,
+    borderColor: null,
+    thButtonColorHover: null,
+  },
+  Layout: {
+    footerColor: 'white',
+
   }
 }
 </script>

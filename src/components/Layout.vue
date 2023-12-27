@@ -1,6 +1,6 @@
 <template>
     <div class="drag"></div>
-    <NLayout position="absolute" h-100vh has-sider>
+    <NLayout position="absolute" h100vh has-sider>
         <NLayoutSider collapse-mode="width" :native-scrollbar="false" :collapsed-width="60" :width="200">
             <Logo />
             <NMenu ref="menu" :options="menus"></NMenu>
@@ -24,26 +24,20 @@
                 <slot />
             </NLayoutContent>
             <NLayoutFooter pl4 pr4 pb5 h-100px position="absolute">
-                <AudioPlayer ref="audioPlayer" :audio-list="audioList.map(elm => elm.url)" theme-color="#ff2929" />
+                <div>
+
+                </div>
             </NLayoutFooter>
         </NLayout>
+
+
     </NLayout>
 </template>
 <script lang="ts" setup>
 import { MenuGroupOption, MenuOption } from 'naive-ui';
 import { RouterLink } from 'vue-router';
-import AudioPlayer from '@liripeng/vue-audio-player'
 const currentAudioName = ref('')
-const audioList = [
-    {
-        name: 'audio1',
-        url: 'https://www.0dutv.com/upload/dance/F25F74A0B8FF82503241801D0E2CA5CD.mp3'
-    },
-    {
-        name: 'audio2',
-        url: 'https://www.0dutv.com/upload/dance/20200316/C719452E3C7834080007662021EA968E.mp3'
-    }
-]
+
 const menus = ref<MenuOption[] | MenuGroupOption[]>([
     {
         type: 'group',
