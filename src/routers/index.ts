@@ -1,15 +1,17 @@
-import Layout from "@/layouts/index.vue";
+import { RouteRecordRaw } from "vue-router";
 
-const routers: any[] = [
+const routers: RouteRecordRaw[] = [
   {
-    path: "",
-    component: Layout,
-    redirect: "/index",
-    hidden: true,
-    children: [
-      { path: "/index", component: () => import("@/pages/index.vue") },
-    ],
+    path: "/", component: () => import("@/pages/index.vue")
   },
+  {
+    path: '/favorite', component: () => import('@/pages/favorite/index.vue'),
+    name: 'favorite'
+  },
+  {
+    path: '/like', component: () => import('@/pages/like/index.vue'),
+    name: 'like'
+  }
 ];
 const router = createRouter({
   history: createWebHistory(),

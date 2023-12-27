@@ -1,17 +1,29 @@
 <template>
-  <NConfigProvider :theme="themeValue">
+  <NConfigProvider :theme="themeValue" :theme-overrides="themeOverrides">
     <NGlobalStyle />
-    <RouterView />
+    <Layout>
+      <RouterView />
+    </Layout>
   </NConfigProvider>
 </template>
 <script setup lang="ts">
-import { darkTheme } from 'naive-ui';
+import { darkTheme, GlobalThemeOverrides } from 'naive-ui';
 const isDark = useDark();
 const themeValue = ref()
 watchEffect(() => {
   console.log(isDark.value);
   themeValue.value = isDark.value ? darkTheme : null
 })
+const themeOverrides: GlobalThemeOverrides = {
+  DataTable: {
+    thColor: null,
+    thColorHover: null,
+    thColorHoverModal: null,
+    thColorHoverPopover: null,
+    borderColor: null,
+    thButtonColorHover: null,
+  }
+}
 </script>
 
 

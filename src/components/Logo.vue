@@ -1,5 +1,5 @@
 <template>
-    <div w-full flex="~ justify-center  items-center" h-100px>
+    <div w-full mt-4 flex="~ justify-center  items-center" h-100px>
         <img :src="logoUrl" h-30px w-140px />
     </div>
 </template>
