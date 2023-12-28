@@ -23,8 +23,8 @@
             <NLayoutContent p4 :native-scrollbar="false" position="absolute" pr10 style="top:50px;bottom: 80px;">
                 <slot />
             </NLayoutContent>
-            <NLayoutFooter pb5 h-80px position="absolute">
-                <NProgress processing :height="2" :percentage="20" status="success" :border-radius="0" type="line"
+            <NLayoutFooter pb5 h-75px position="absolute">
+                <NProgress processing :height="1.5" :percentage="20" status="success" :border-radius="0" type="line"
                     :show-indicator="false" />
             </NLayoutFooter>
         </NLayout>
@@ -51,9 +51,9 @@ const menus = ref<MenuOption[] | MenuGroupOption[]>([
 
             }, {
                 label: () =>
-                    h(RouterLink, { to: { name: 'like' } }, { default: () => '测试歌单' }),
+                    h(RouterLink, { to: { name: 'like' } }, { default: () => '本地歌曲' }),
                 key: '3',
-                icon: () => h('div', { class: 'i-line-md:heart-filled' })
+                icon: () => h('div', { class: 'i-line-md:computer-twotone' })
             }
         ]
     }

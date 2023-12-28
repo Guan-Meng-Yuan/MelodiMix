@@ -21,9 +21,14 @@ const darkThemeOverride: GlobalThemeOverrides = {
     thColorHoverPopover: null,
     borderColor: null,
     thButtonColorHover: null,
+    tdColor: '#1E1E20'
   },
   Layout: {
-    footerColor: 'rgb(24, 24, 28)',
+    footerColor: '#1E1E20',
+    headerColor: '#1E1E20',
+    color: '#1E1E20',
+    siderColor: '#171718'
+
 
   }
 }
