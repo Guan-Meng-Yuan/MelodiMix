@@ -28,8 +28,6 @@ const darkThemeOverride: GlobalThemeOverrides = {
     headerColor: '#1E1E20',
     color: '#1E1E20',
     siderColor: '#171718'
-
-
   }
 }
 const lightThemeOverride: GlobalThemeOverrides = {
@@ -43,8 +41,8 @@ const lightThemeOverride: GlobalThemeOverrides = {
   },
   Layout: {
     footerColor: 'white',
-
-  }
+    siderColor: '#F6F6F6'
+  },
 }
 </script>
 

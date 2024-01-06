@@ -1,7 +1,8 @@
 import { app, BrowserWindow, shell, ipcMain } from "electron";
 import { release } from "node:os";
 import { join } from "node:path";
-
+require('@electron/remote/main').initialize()
+const { enable } = require('@electron/remote/main')
 // The built directory structure
 //
 // ├─┬ dist-electron
@@ -57,7 +58,7 @@ async function createWindow() {
       contextIsolation: false,
     },
   });
-
+  enable(win.webContents)
   if (process.env.VITE_DEV_SERVER_URL) {
     // electron-vite-vue#298
     win.loadURL(url);

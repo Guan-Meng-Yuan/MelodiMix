@@ -66,7 +66,9 @@ export default defineConfig(({ command }) => {
         ],
       }),
       electron([
+
         {
+
           // Main process entry file of the Electron App.
           entry: "electron/main/index.ts",
           onstart({ startup }) {
@@ -123,7 +125,11 @@ export default defineConfig(({ command }) => {
         },
       ]),
       // Use Node.js API in the Renderer process
-      renderer(),
+      renderer({
+        resolve: {
+          dialog: () => 'const dialog = require("electron");export default dialog;',
+        },
+      }),
     ],
     server:
       process.env.VSCODE_DEBUG &&
